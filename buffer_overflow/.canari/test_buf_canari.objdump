@@ -1,0 +1,569 @@
+
+test_buf_canari:     file format elf32-i386
+
+Disassembly of section .init:
+
+080484c8 <_init>:
+ 80484c8:	55                   	push   %ebp
+ 80484c9:	89 e5                	mov    %esp,%ebp
+ 80484cb:	53                   	push   %ebx
+ 80484cc:	83 ec 04             	sub    $0x4,%esp
+ 80484cf:	e8 00 00 00 00       	call   80484d4 <_init+0xc>
+ 80484d4:	5b                   	pop    %ebx
+ 80484d5:	81 c3 14 0c 00 00    	add    $0xc14,%ebx
+ 80484db:	8b 93 fc ff ff ff    	mov    -0x4(%ebx),%edx
+ 80484e1:	85 d2                	test   %edx,%edx
+ 80484e3:	74 05                	je     80484ea <_init+0x22>
+ 80484e5:	e8 3e 00 00 00       	call   8048528 <__gmon_start__@plt>
+ 80484ea:	e8 b1 01 00 00       	call   80486a0 <frame_dummy>
+ 80484ef:	e8 dc 04 00 00       	call   80489d0 <__do_global_ctors_aux>
+ 80484f4:	58                   	pop    %eax
+ 80484f5:	5b                   	pop    %ebx
+ 80484f6:	c9                   	leave  
+ 80484f7:	c3                   	ret    
+Disassembly of section .plt:
+
+080484f8 <random@plt-0x10>:
+ 80484f8:	ff 35 ec 90 04 08    	pushl  0x80490ec
+ 80484fe:	ff 25 f0 90 04 08    	jmp    *0x80490f0
+ 8048504:	00 00                	add    %al,(%eax)
+	...
+
+08048508 <random@plt>:
+ 8048508:	ff 25 f4 90 04 08    	jmp    *0x80490f4
+ 804850e:	68 00 00 00 00       	push   $0x0
+ 8048513:	e9 e0 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048518 <ftime@plt>:
+ 8048518:	ff 25 f8 90 04 08    	jmp    *0x80490f8
+ 804851e:	68 08 00 00 00       	push   $0x8
+ 8048523:	e9 d0 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048528 <__gmon_start__@plt>:
+ 8048528:	ff 25 fc 90 04 08    	jmp    *0x80490fc
+ 804852e:	68 10 00 00 00       	push   $0x10
+ 8048533:	e9 c0 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048538 <system@plt>:
+ 8048538:	ff 25 00 91 04 08    	jmp    *0x8049100
+ 804853e:	68 18 00 00 00       	push   $0x18
+ 8048543:	e9 b0 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048548 <__libc_start_main@plt>:
+ 8048548:	ff 25 04 91 04 08    	jmp    *0x8049104
+ 804854e:	68 20 00 00 00       	push   $0x20
+ 8048553:	e9 a0 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048558 <fflush@plt>:
+ 8048558:	ff 25 08 91 04 08    	jmp    *0x8049108
+ 804855e:	68 28 00 00 00       	push   $0x28
+ 8048563:	e9 90 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048568 <fclose@plt>:
+ 8048568:	ff 25 0c 91 04 08    	jmp    *0x804910c
+ 804856e:	68 30 00 00 00       	push   $0x30
+ 8048573:	e9 80 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048578 <memcpy@plt>:
+ 8048578:	ff 25 10 91 04 08    	jmp    *0x8049110
+ 804857e:	68 38 00 00 00       	push   $0x38
+ 8048583:	e9 70 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048588 <fopen@plt>:
+ 8048588:	ff 25 14 91 04 08    	jmp    *0x8049114
+ 804858e:	68 40 00 00 00       	push   $0x40
+ 8048593:	e9 60 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+08048598 <fgetc@plt>:
+ 8048598:	ff 25 18 91 04 08    	jmp    *0x8049118
+ 804859e:	68 48 00 00 00       	push   $0x48
+ 80485a3:	e9 50 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485a8 <srandom@plt>:
+ 80485a8:	ff 25 1c 91 04 08    	jmp    *0x804911c
+ 80485ae:	68 50 00 00 00       	push   $0x50
+ 80485b3:	e9 40 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485b8 <fwrite@plt>:
+ 80485b8:	ff 25 20 91 04 08    	jmp    *0x8049120
+ 80485be:	68 58 00 00 00       	push   $0x58
+ 80485c3:	e9 30 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485c8 <fprintf@plt>:
+ 80485c8:	ff 25 24 91 04 08    	jmp    *0x8049124
+ 80485ce:	68 60 00 00 00       	push   $0x60
+ 80485d3:	e9 20 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485d8 <strcat@plt>:
+ 80485d8:	ff 25 28 91 04 08    	jmp    *0x8049128
+ 80485de:	68 68 00 00 00       	push   $0x68
+ 80485e3:	e9 10 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485e8 <puts@plt>:
+ 80485e8:	ff 25 2c 91 04 08    	jmp    *0x804912c
+ 80485ee:	68 70 00 00 00       	push   $0x70
+ 80485f3:	e9 00 ff ff ff       	jmp    80484f8 <_init+0x30>
+
+080485f8 <exit@plt>:
+ 80485f8:	ff 25 30 91 04 08    	jmp    *0x8049130
+ 80485fe:	68 78 00 00 00       	push   $0x78
+ 8048603:	e9 f0 fe ff ff       	jmp    80484f8 <_init+0x30>
+Disassembly of section .text:
+
+08048610 <_start>:
+ 8048610:	31 ed                	xor    %ebp,%ebp
+ 8048612:	5e                   	pop    %esi
+ 8048613:	89 e1                	mov    %esp,%ecx
+ 8048615:	83 e4 f0             	and    $0xfffffff0,%esp
+ 8048618:	50                   	push   %eax
+ 8048619:	54                   	push   %esp
+ 804861a:	52                   	push   %edx
+ 804861b:	68 60 89 04 08       	push   $0x8048960
+ 8048620:	68 70 89 04 08       	push   $0x8048970
+ 8048625:	51                   	push   %ecx
+ 8048626:	56                   	push   %esi
+ 8048627:	68 f7 88 04 08       	push   $0x80488f7
+ 804862c:	e8 17 ff ff ff       	call   8048548 <__libc_start_main@plt>
+ 8048631:	f4                   	hlt    
+ 8048632:	90                   	nop    
+ 8048633:	90                   	nop    
+ 8048634:	90                   	nop    
+ 8048635:	90                   	nop    
+ 8048636:	90                   	nop    
+ 8048637:	90                   	nop    
+ 8048638:	90                   	nop    
+ 8048639:	90                   	nop    
+ 804863a:	90                   	nop    
+ 804863b:	90                   	nop    
+ 804863c:	90                   	nop    
+ 804863d:	90                   	nop    
+ 804863e:	90                   	nop    
+ 804863f:	90                   	nop    
+
+08048640 <__do_global_dtors_aux>:
+ 8048640:	55                   	push   %ebp
+ 8048641:	89 e5                	mov    %esp,%ebp
+ 8048643:	53                   	push   %ebx
+ 8048644:	83 ec 04             	sub    $0x4,%esp
+ 8048647:	80 3d 44 91 04 08 00 	cmpb   $0x0,0x8049144
+ 804864e:	75 40                	jne    8048690 <__do_global_dtors_aux+0x50>
+ 8048650:	8b 15 48 91 04 08    	mov    0x8049148,%edx
+ 8048656:	b8 0c 90 04 08       	mov    $0x804900c,%eax
+ 804865b:	2d 08 90 04 08       	sub    $0x8049008,%eax
+ 8048660:	c1 f8 02             	sar    $0x2,%eax
+ 8048663:	8d 58 ff             	lea    -0x1(%eax),%ebx
+ 8048666:	39 da                	cmp    %ebx,%edx
+ 8048668:	73 1f                	jae    8048689 <__do_global_dtors_aux+0x49>
+ 804866a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 8048670:	8d 42 01             	lea    0x1(%edx),%eax
+ 8048673:	a3 48 91 04 08       	mov    %eax,0x8049148
+ 8048678:	ff 14 85 08 90 04 08 	call   *0x8049008(,%eax,4)
+ 804867f:	8b 15 48 91 04 08    	mov    0x8049148,%edx
+ 8048685:	39 da                	cmp    %ebx,%edx
+ 8048687:	72 e7                	jb     8048670 <__do_global_dtors_aux+0x30>
+ 8048689:	c6 05 44 91 04 08 01 	movb   $0x1,0x8049144
+ 8048690:	83 c4 04             	add    $0x4,%esp
+ 8048693:	5b                   	pop    %ebx
+ 8048694:	5d                   	pop    %ebp
+ 8048695:	c3                   	ret    
+ 8048696:	8d 76 00             	lea    0x0(%esi),%esi
+ 8048699:	8d bc 27 00 00 00 00 	lea    0x0(%edi),%edi
+
+080486a0 <frame_dummy>:
+ 80486a0:	55                   	push   %ebp
+ 80486a1:	89 e5                	mov    %esp,%ebp
+ 80486a3:	83 ec 08             	sub    $0x8,%esp
+ 80486a6:	a1 10 90 04 08       	mov    0x8049010,%eax
+ 80486ab:	85 c0                	test   %eax,%eax
+ 80486ad:	74 12                	je     80486c1 <frame_dummy+0x21>
+ 80486af:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80486b4:	85 c0                	test   %eax,%eax
+ 80486b6:	74 09                	je     80486c1 <frame_dummy+0x21>
+ 80486b8:	c7 04 24 10 90 04 08 	movl   $0x8049010,(%esp)
+ 80486bf:	ff d0                	call   *%eax
+ 80486c1:	c9                   	leave  
+ 80486c2:	c3                   	ret    
+ 80486c3:	90                   	nop    
+
+080486c4 <canari_op>:
+int i, c;
+int canari_global;
+int c_op = 1;
+
+void canari_op(int *canari) 
+{
+ 80486c4:	55                   	push   %ebp
+ 80486c5:	89 e5                	mov    %esp,%ebp
+ 80486c7:	83 ec 10             	sub    $0x10,%esp
+  int i;
+
+  if (c_op == 0) {
+ 80486ca:	a1 3c 91 04 08       	mov    0x804913c,%eax
+ 80486cf:	85 c0                	test   %eax,%eax
+ 80486d1:	74 12                	je     80486e5 <canari_op+0x21>
+    return;
+  } else {
+      *canari ^= 0x5555;
+ 80486d3:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80486d6:	8b 00                	mov    (%eax),%eax
+ 80486d8:	89 c2                	mov    %eax,%edx
+ 80486da:	81 f2 55 55 00 00    	xor    $0x5555,%edx
+ 80486e0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80486e3:	89 10                	mov    %edx,(%eax)
+  }
+}
+ 80486e5:	c9                   	leave  
+ 80486e6:	c3                   	ret    
+
+080486e7 <get_canari>:
+
+int get_canari(void) 
+{
+ 80486e7:	55                   	push   %ebp
+ 80486e8:	89 e5                	mov    %esp,%ebp
+ 80486ea:	83 ec 14             	sub    $0x14,%esp
+  int tmp_canari;
+
+  tmp_canari = canari_global;
+ 80486ed:	a1 78 b8 04 08       	mov    0x804b878,%eax
+ 80486f2:	89 45 fc             	mov    %eax,-0x4(%ebp)
+  canari_op(&tmp_canari);
+ 80486f5:	8d 45 fc             	lea    -0x4(%ebp),%eax
+ 80486f8:	89 04 24             	mov    %eax,(%esp)
+ 80486fb:	e8 c4 ff ff ff       	call   80486c4 <canari_op>
+  return(tmp_canari);
+ 8048700:	8b 45 fc             	mov    -0x4(%ebp),%eax
+}
+ 8048703:	c9                   	leave  
+ 8048704:	c3                   	ret    
+
+08048705 <set_canari>:
+
+void set_canari() 
+{
+ 8048705:	55                   	push   %ebp
+ 8048706:	89 e5                	mov    %esp,%ebp
+ 8048708:	83 ec 28             	sub    $0x28,%esp
+  int i;
+  struct timeb tb;
+  int seed;
+ 
+  ftime(&tb);
+ 804870b:	8d 45 ec             	lea    -0x14(%ebp),%eax
+ 804870e:	89 04 24             	mov    %eax,(%esp)
+ 8048711:	e8 02 fe ff ff       	call   8048518 <ftime@plt>
+  seed = tb.millitm;
+ 8048716:	0f b7 45 f0          	movzwl -0x10(%ebp),%eax
+ 804871a:	0f b7 c0             	movzwl %ax,%eax
+ 804871d:	89 45 fc             	mov    %eax,-0x4(%ebp)
+  srandom(seed);
+ 8048720:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048723:	89 04 24             	mov    %eax,(%esp)
+ 8048726:	e8 7d fe ff ff       	call   80485a8 <srandom@plt>
+
+  canari_global = (int) random();
+ 804872b:	e8 d8 fd ff ff       	call   8048508 <random@plt>
+ 8048730:	a3 78 b8 04 08       	mov    %eax,0x804b878
+}
+ 8048735:	c9                   	leave  
+ 8048736:	c3                   	ret    
+
+08048737 <check_canari>:
+
+void check_canari(int canari_a_verifier)
+{
+ 8048737:	55                   	push   %ebp
+ 8048738:	89 e5                	mov    %esp,%ebp
+ 804873a:	83 ec 18             	sub    $0x18,%esp
+  int i;
+  int tmp_canari;
+
+  tmp_canari = canari_global;
+ 804873d:	a1 78 b8 04 08       	mov    0x804b878,%eax
+ 8048742:	89 45 f8             	mov    %eax,-0x8(%ebp)
+
+  canari_op(&tmp_canari);
+ 8048745:	8d 45 f8             	lea    -0x8(%ebp),%eax
+ 8048748:	89 04 24             	mov    %eax,(%esp)
+ 804874b:	e8 74 ff ff ff       	call   80486c4 <canari_op>
+  if (tmp_canari != canari_a_verifier) {
+ 8048750:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8048753:	3b 45 08             	cmp    0x8(%ebp),%eax
+ 8048756:	74 18                	je     8048770 <check_canari+0x39>
+    printf("Probleme de Buffer overflow\n");
+ 8048758:	c7 04 24 20 8a 04 08 	movl   $0x8048a20,(%esp)
+ 804875f:	e8 84 fe ff ff       	call   80485e8 <puts@plt>
+    exit(1);
+ 8048764:	c7 04 24 01 00 00 00 	movl   $0x1,(%esp)
+ 804876b:	e8 88 fe ff ff       	call   80485f8 <exit@plt>
+  }
+}
+ 8048770:	c9                   	leave  
+ 8048771:	c3                   	ret    
+
+08048772 <appel_problematique>:
+
+void appel_problematique(char *usager) {
+ 8048772:	55                   	push   %ebp
+ 8048773:	89 e5                	mov    %esp,%ebp
+ 8048775:	81 ec 28 04 00 00    	sub    $0x428,%esp
+  int canari = get_canari();
+ 804877b:	e8 67 ff ff ff       	call   80486e7 <get_canari>
+ 8048780:	89 45 fc             	mov    %eax,-0x4(%ebp)
+  char usager_local[1024];
+
+  strcpy(cmd,"echo \"Pouvez-vous faire afficher ce message?\"");
+ 8048783:	c7 44 24 08 2e 00 00 	movl   $0x2e,0x8(%esp)
+ 804878a:	00 
+ 804878b:	c7 44 24 04 3c 8a 04 	movl   $0x8048a3c,0x4(%esp)
+ 8048792:	08 
+ 8048793:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 804879a:	e8 d9 fd ff ff       	call   8048578 <memcpy@plt>
+  name_file = fopen(usager,"r");
+ 804879f:	c7 44 24 04 6a 8a 04 	movl   $0x8048a6a,0x4(%esp)
+ 80487a6:	08 
+ 80487a7:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487aa:	89 04 24             	mov    %eax,(%esp)
+ 80487ad:	e8 d6 fd ff ff       	call   8048588 <fopen@plt>
+ 80487b2:	a3 74 b8 04 08       	mov    %eax,0x804b874
+  c = fgetc(name_file);
+ 80487b7:	a1 74 b8 04 08       	mov    0x804b874,%eax
+ 80487bc:	89 04 24             	mov    %eax,(%esp)
+ 80487bf:	e8 d4 fd ff ff       	call   8048598 <fgetc@plt>
+ 80487c4:	a3 7c b8 04 08       	mov    %eax,0x804b87c
+  i = 0;
+ 80487c9:	c7 05 70 b8 04 08 00 	movl   $0x0,0x804b870
+ 80487d0:	00 00 00 
+ 80487d3:	eb 31                	jmp    8048806 <appel_problematique+0x94>
+  while (c != EOF) {
+    usager_local[i] = c;
+ 80487d5:	8b 15 70 b8 04 08    	mov    0x804b870,%edx
+ 80487db:	a1 7c b8 04 08       	mov    0x804b87c,%eax
+ 80487e0:	88 84 15 fc fb ff ff 	mov    %al,-0x404(%ebp,%edx,1)
+    c = fgetc(name_file);
+ 80487e7:	a1 74 b8 04 08       	mov    0x804b874,%eax
+ 80487ec:	89 04 24             	mov    %eax,(%esp)
+ 80487ef:	e8 a4 fd ff ff       	call   8048598 <fgetc@plt>
+ 80487f4:	a3 7c b8 04 08       	mov    %eax,0x804b87c
+    i++;
+ 80487f9:	a1 70 b8 04 08       	mov    0x804b870,%eax
+ 80487fe:	83 c0 01             	add    $0x1,%eax
+ 8048801:	a3 70 b8 04 08       	mov    %eax,0x804b870
+
+  strcpy(cmd,"echo \"Pouvez-vous faire afficher ce message?\"");
+  name_file = fopen(usager,"r");
+  c = fgetc(name_file);
+  i = 0;
+  while (c != EOF) {
+ 8048806:	a1 7c b8 04 08       	mov    0x804b87c,%eax
+ 804880b:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 804880e:	75 c5                	jne    80487d5 <appel_problematique+0x63>
+    usager_local[i] = c;
+    c = fgetc(name_file);
+    i++;
+  }
+  usager_local[i-1] = 0;
+ 8048810:	a1 70 b8 04 08       	mov    0x804b870,%eax
+ 8048815:	83 e8 01             	sub    $0x1,%eax
+ 8048818:	c6 84 05 fc fb ff ff 	movb   $0x0,-0x404(%ebp,%eax,1)
+ 804881f:	00 
+  
+  if (i > 1024 ) {
+ 8048820:	a1 70 b8 04 08       	mov    0x804b870,%eax
+ 8048825:	3d 00 04 00 00       	cmp    $0x400,%eax
+ 804882a:	7e 42                	jle    804886e <appel_problematique+0xfc>
+    fclose(name_file);
+ 804882c:	a1 74 b8 04 08       	mov    0x804b874,%eax
+ 8048831:	89 04 24             	mov    %eax,(%esp)
+ 8048834:	e8 2f fd ff ff       	call   8048568 <fclose@plt>
+    fprintf(stdout,"Fichier trop gros!\n");
+ 8048839:	a1 40 91 04 08       	mov    0x8049140,%eax
+ 804883e:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 8048842:	c7 44 24 08 13 00 00 	movl   $0x13,0x8(%esp)
+ 8048849:	00 
+ 804884a:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)
+ 8048851:	00 
+ 8048852:	c7 04 24 6c 8a 04 08 	movl   $0x8048a6c,(%esp)
+ 8048859:	e8 5a fd ff ff       	call   80485b8 <fwrite@plt>
+    RETURN;
+ 804885e:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048861:	89 04 24             	mov    %eax,(%esp)
+ 8048864:	e8 ce fe ff ff       	call   8048737 <check_canari>
+ 8048869:	e9 87 00 00 00       	jmp    80488f5 <appel_problematique+0x183>
+  } else {
+    fclose(name_file);
+ 804886e:	a1 74 b8 04 08       	mov    0x804b874,%eax
+ 8048873:	89 04 24             	mov    %eax,(%esp)
+ 8048876:	e8 ed fc ff ff       	call   8048568 <fclose@plt>
+    strcpy(cmd,"echo ");
+ 804887b:	c7 44 24 08 06 00 00 	movl   $0x6,0x8(%esp)
+ 8048882:	00 
+ 8048883:	c7 44 24 04 80 8a 04 	movl   $0x8048a80,0x4(%esp)
+ 804888a:	08 
+ 804888b:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 8048892:	e8 e1 fc ff ff       	call   8048578 <memcpy@plt>
+    strcat(cmd,usager_local);
+ 8048897:	8d 85 fc fb ff ff    	lea    -0x404(%ebp),%eax
+ 804889d:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80488a1:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 80488a8:	e8 2b fd ff ff       	call   80485d8 <strcat@plt>
+    system(cmd);
+ 80488ad:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 80488b4:	e8 7f fc ff ff       	call   8048538 <system@plt>
+  }
+
+  if (variable_nulle) {
+ 80488b9:	a1 4c 91 04 08       	mov    0x804914c,%eax
+ 80488be:	85 c0                	test   %eax,%eax
+ 80488c0:	74 28                	je     80488ea <appel_problematique+0x178>
+    strcpy(cmd,"echo \"Ce message ne devrait jamais etre affiche...\"");
+ 80488c2:	c7 44 24 08 34 00 00 	movl   $0x34,0x8(%esp)
+ 80488c9:	00 
+ 80488ca:	c7 44 24 04 88 8a 04 	movl   $0x8048a88,0x4(%esp)
+ 80488d1:	08 
+ 80488d2:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 80488d9:	e8 9a fc ff ff       	call   8048578 <memcpy@plt>
+    system(cmd);
+ 80488de:	c7 04 24 60 91 04 08 	movl   $0x8049160,(%esp)
+ 80488e5:	e8 4e fc ff ff       	call   8048538 <system@plt>
+  }
+
+  RETURN;
+ 80488ea:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80488ed:	89 04 24             	mov    %eax,(%esp)
+ 80488f0:	e8 42 fe ff ff       	call   8048737 <check_canari>
+}
+ 80488f5:	c9                   	leave  
+ 80488f6:	c3                   	ret    
+
+080488f7 <main>:
+
+int main (int argc, char **argv) {
+ 80488f7:	8d 4c 24 04          	lea    0x4(%esp),%ecx
+ 80488fb:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80488fe:	ff 71 fc             	pushl  -0x4(%ecx)
+ 8048901:	55                   	push   %ebp
+ 8048902:	89 e5                	mov    %esp,%ebp
+ 8048904:	53                   	push   %ebx
+ 8048905:	51                   	push   %ecx
+ 8048906:	83 ec 20             	sub    $0x20,%esp
+ 8048909:	89 cb                	mov    %ecx,%ebx
+  int i;
+ 
+  set_canari();
+ 804890b:	e8 f5 fd ff ff       	call   8048705 <set_canari>
+  fprintf(stdout, "Lecture des donnees du fichier: \"%s\"\n", argv[1]);
+ 8048910:	8b 43 04             	mov    0x4(%ebx),%eax
+ 8048913:	83 c0 04             	add    $0x4,%eax
+ 8048916:	8b 00                	mov    (%eax),%eax
+ 8048918:	8b 15 40 91 04 08    	mov    0x8049140,%edx
+ 804891e:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048922:	c7 44 24 04 bc 8a 04 	movl   $0x8048abc,0x4(%esp)
+ 8048929:	08 
+ 804892a:	89 14 24             	mov    %edx,(%esp)
+ 804892d:	e8 96 fc ff ff       	call   80485c8 <fprintf@plt>
+  fflush(stdout);
+ 8048932:	a1 40 91 04 08       	mov    0x8049140,%eax
+ 8048937:	89 04 24             	mov    %eax,(%esp)
+ 804893a:	e8 19 fc ff ff       	call   8048558 <fflush@plt>
+
+  appel_problematique(argv[1]);
+ 804893f:	8b 43 04             	mov    0x4(%ebx),%eax
+ 8048942:	83 c0 04             	add    $0x4,%eax
+ 8048945:	8b 00                	mov    (%eax),%eax
+ 8048947:	89 04 24             	mov    %eax,(%esp)
+ 804894a:	e8 23 fe ff ff       	call   8048772 <appel_problematique>
+
+  exit(0);
+ 804894f:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+ 8048956:	e8 9d fc ff ff       	call   80485f8 <exit@plt>
+ 804895b:	90                   	nop    
+ 804895c:	90                   	nop    
+ 804895d:	90                   	nop    
+ 804895e:	90                   	nop    
+ 804895f:	90                   	nop    
+
+08048960 <__libc_csu_fini>:
+ 8048960:	55                   	push   %ebp
+ 8048961:	89 e5                	mov    %esp,%ebp
+ 8048963:	5d                   	pop    %ebp
+ 8048964:	c3                   	ret    
+ 8048965:	8d 74 26 00          	lea    0x0(%esi),%esi
+ 8048969:	8d bc 27 00 00 00 00 	lea    0x0(%edi),%edi
+
+08048970 <__libc_csu_init>:
+ 8048970:	55                   	push   %ebp
+ 8048971:	89 e5                	mov    %esp,%ebp
+ 8048973:	57                   	push   %edi
+ 8048974:	56                   	push   %esi
+ 8048975:	53                   	push   %ebx
+ 8048976:	e8 4f 00 00 00       	call   80489ca <__i686.get_pc_thunk.bx>
+ 804897b:	81 c3 6d 07 00 00    	add    $0x76d,%ebx
+ 8048981:	83 ec 0c             	sub    $0xc,%esp
+ 8048984:	e8 3f fb ff ff       	call   80484c8 <_init>
+ 8048989:	8d bb 18 ff ff ff    	lea    -0xe8(%ebx),%edi
+ 804898f:	8d 83 18 ff ff ff    	lea    -0xe8(%ebx),%eax
+ 8048995:	29 c7                	sub    %eax,%edi
+ 8048997:	c1 ff 02             	sar    $0x2,%edi
+ 804899a:	85 ff                	test   %edi,%edi
+ 804899c:	74 24                	je     80489c2 <__libc_csu_init+0x52>
+ 804899e:	31 f6                	xor    %esi,%esi
+ 80489a0:	8b 45 10             	mov    0x10(%ebp),%eax
+ 80489a3:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 80489a7:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80489aa:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80489ae:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80489b1:	89 04 24             	mov    %eax,(%esp)
+ 80489b4:	ff 94 b3 18 ff ff ff 	call   *-0xe8(%ebx,%esi,4)
+ 80489bb:	83 c6 01             	add    $0x1,%esi
+ 80489be:	39 f7                	cmp    %esi,%edi
+ 80489c0:	75 de                	jne    80489a0 <__libc_csu_init+0x30>
+ 80489c2:	83 c4 0c             	add    $0xc,%esp
+ 80489c5:	5b                   	pop    %ebx
+ 80489c6:	5e                   	pop    %esi
+ 80489c7:	5f                   	pop    %edi
+ 80489c8:	5d                   	pop    %ebp
+ 80489c9:	c3                   	ret    
+
+080489ca <__i686.get_pc_thunk.bx>:
+ 80489ca:	8b 1c 24             	mov    (%esp),%ebx
+ 80489cd:	c3                   	ret    
+ 80489ce:	90                   	nop    
+ 80489cf:	90                   	nop    
+
+080489d0 <__do_global_ctors_aux>:
+ 80489d0:	55                   	push   %ebp
+ 80489d1:	89 e5                	mov    %esp,%ebp
+ 80489d3:	53                   	push   %ebx
+ 80489d4:	83 ec 04             	sub    $0x4,%esp
+ 80489d7:	a1 00 90 04 08       	mov    0x8049000,%eax
+ 80489dc:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 80489df:	74 13                	je     80489f4 <__do_global_ctors_aux+0x24>
+ 80489e1:	bb 00 90 04 08       	mov    $0x8049000,%ebx
+ 80489e6:	66 90                	xchg   %ax,%ax
+ 80489e8:	83 eb 04             	sub    $0x4,%ebx
+ 80489eb:	ff d0                	call   *%eax
+ 80489ed:	8b 03                	mov    (%ebx),%eax
+ 80489ef:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 80489f2:	75 f4                	jne    80489e8 <__do_global_ctors_aux+0x18>
+ 80489f4:	83 c4 04             	add    $0x4,%esp
+ 80489f7:	5b                   	pop    %ebx
+ 80489f8:	5d                   	pop    %ebp
+ 80489f9:	c3                   	ret    
+ 80489fa:	90                   	nop    
+ 80489fb:	90                   	nop    
+Disassembly of section .fini:
+
+080489fc <_fini>:
+ 80489fc:	55                   	push   %ebp
+ 80489fd:	89 e5                	mov    %esp,%ebp
+ 80489ff:	53                   	push   %ebx
+ 8048a00:	83 ec 04             	sub    $0x4,%esp
+ 8048a03:	e8 00 00 00 00       	call   8048a08 <_fini+0xc>
+ 8048a08:	5b                   	pop    %ebx
+ 8048a09:	81 c3 e0 06 00 00    	add    $0x6e0,%ebx
+ 8048a0f:	e8 2c fc ff ff       	call   8048640 <__do_global_dtors_aux>
+ 8048a14:	59                   	pop    %ecx
+ 8048a15:	5b                   	pop    %ebx
+ 8048a16:	c9                   	leave  
+ 8048a17:	c3                   	ret    
