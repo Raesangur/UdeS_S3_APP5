@@ -1,0 +1,11 @@
+1. q: premier
+2. p: premier
+3. g^q == 1 % p
+4. p = 1 mod q -> p = 2kq + 1
+
+
+
+trouver prime q très grand
+trouver nombre p à partir de q (p = 2kq + 1)
+pour diffie-hellman, pour %p, il y a des g qui ont des cycles de longueur q
+
