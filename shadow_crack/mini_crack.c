@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <crypt.h>		// Needed to add this
 #define SIZE 1024
 
 char pass_file[SIZE];
@@ -127,7 +128,7 @@ void run_dict()
         La variable tmp_dict_word contient une chaîne de caractères qui représente l'un des mots du dictionnaire
     */
 
-    test_encrypted_passwd = (char *) crypt(/* Utiliser les bons parametres */);
+    test_encrypted_passwd = (char *) crypt(tmp_dict_word, salt);
     if (!strcmp(test_encrypted_passwd, encrypted_passwd)) {
       fprintf (stdout, 
                "----Usager: %s, Mot de passe: \"%s\"\n", 
@@ -161,7 +162,7 @@ void run_exhaustif(int niveau)
     /*
         La variable recherche comprend une chaîne de caractères qui représente l'une des séquences à valider (l'une de celles incluses dans la recherche exhaustive)
     */
-    test_encrypted_passwd = (char *) crypt(/* Utiliser les bons parametres */);
+    test_encrypted_passwd = (char *) crypt(recherche, salt);
     if (!strcmp(test_encrypted_passwd, encrypted_passwd)) {
       fprintf (stdout, 
               "----Usager: %s, Mot de passe: \"%s\"\n", 
