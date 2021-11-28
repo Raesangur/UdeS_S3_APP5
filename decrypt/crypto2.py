@@ -24,49 +24,14 @@ def modular_pow(base, exponent,modulus):
 	return result
 
 # method to return prime divisor for n
-def PollardRho( n):
+def PollardRho(n):
+    m = 2
+    for i in range(1, n):
+        m = (m**i) % n
+        if(math.gcd(n, m - 1) != 1):
+            f = math.gcd(n, m - 1)
 
-	# no prime divisor for 1
-	if (n == 1):
-		return n
-
-	# even number means one of the divisors is 2
-	if (n % 2 == 0):
-		return 2
-
-	# we will pick from the range [2, N)
-	x = (random.randint(0, 2) % (n - 2))
-	y = x
-
-	# the constant in f(x).
-	# Algorithm can be re-run with a different c
-	# if it throws failure for a composite.
-	c = (random.randint(0, 1) % (n - 1))
-
-	# Initialize candidate divisor (or result)
-	d = 1
-
-	# until the prime factor isn't obtained.
-	# If n is prime, return n
-	while (d == 1):
-	
-		# Tortoise Move: x(i+1) = f(x(i))
-        # ((x^2 mod n) + c + n) %
-		x = (modular_pow(x, 2, n) + c + n)%n
-
-		# Hare Move: y(i+1) = f(f(y(i)))
-		y = (modular_pow(y, 2, n) + c + n)%n
-		y = (modular_pow(y, 2, n) + c + n)%n
-
-		# check gcd of |x-y| and n
-		d = math.gcd(abs(x - y), n)
-
-		# retry if the algorithm fails to find prime factor
-		# with chosen x and c
-		if (d == n):
-			return PollardRho(n)
-	
-	return d
+            return f, n//f
 
 def phiN(p, q):
     return (p - 1)*(q - 1)
@@ -93,11 +58,13 @@ def programme():
     print("test pollard: ", PollardRho(86429))
     e = 13
     n =71632723108922042565754944705405938190163585182073827738737257362015607916694427702407539315166426071602596601779609881448209515844638662529498857637473895727439924386515509746946997356908229763669590304560652312325131017845440601438692992657035378159812499525148161871071841049058092385268270673367938496513 
-    print(PollardRho(n))
+    p, q = (PollardRho(n))
+    print ((p*q) == n)
     
 # Driver function
 if __name__ == "__main__":
     programme()
+
     #c = modular_pow(50, 3, 55)
     #m = modular_pow(c, 27, 55)
     #print(m)
