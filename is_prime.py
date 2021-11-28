@@ -1,4 +1,5 @@
 import random
+import sys 
 
 def modulo_30(x):
 	a = x % 30
@@ -29,5 +30,5 @@ def miller_rabin(d, n):
 
 	return True
 
-def generate_num():
-	
+
+
