@@ -68,20 +68,11 @@ def PollardRho( n):
 	
 	return d
 
-def Pollard_pm1(n):
-    m = 2
-    max = n
-
-    for i in range(1, max):
-        m = modular_pow(m, i, n)
-        if math.gcd(n, m - 1) != 1:
-            return math.gcd(n, m - 1)
-
 def phiN(p, q):
     return (p - 1)*(q - 1)
 
 def inverse_multiplicatif_mod(a,n):
-    if a == 0: 
+    if ( a == 0): 
         return -1
     hg = n
     hv = 0
@@ -98,20 +89,19 @@ def inverse_multiplicatif_mod(a,n):
     return hv
 
 def programme():
-#    print("test: ", inverse_multiplicatif_mod(45,56))
-#    print("test pollard: ", PollardRho(86429))
+    print("test: ", inverse_multiplicatif_mod(45,56))
+    print("test pollard: ", PollardRho(86429))
     e = 13
     n = 86062381025757488680496918738059554508315544797
-    p = Pollard_pm1(n)
-    print(p)
+    p = PollardRho(n)
     q = n // p
     nPQ = p * q
     if (nPQ != n):
         print("ERROR")
     phi_n = phiN(p,q)
     d = inverse_multiplicatif_mod(e,phi_n) % phi_n
-#    if (d < 0):
-#        d = n + d
+    #if (d < 0):
+    #    d = n + d
 
     print("n= ", n , "\np=", p, "\nq=", q, "\nd=", d, "\nphiN=", phi_n)
     print("private-key (n,d)= (", n, ",", d,")")
@@ -119,13 +109,13 @@ def programme():
 # Driver function
 if __name__ == "__main__":
     programme()
-#    c = modular_pow(50, 3, 55)
-#    m = modular_pow(c, 27, 55)
-#    print(m)
+    #c = modular_pow(50, 3, 55)
+    #m = modular_pow(c, 27, 55)
+    #print(m)
 
-#    c = modular_pow(50, 13, 86062381025757488680496918738059554508315544797)
-#    m = modular_pow(c, 46341282156994238628536118344529511083859039514, 86062381025757488680496918738059554508315544797)
-#    print(m)
+    #c = modular_pow(50, 13, 86062381025757488680496918738059554508315544797)
+    #m = modular_pow(c, 46341282156994238628536118344529511083859039514, 86062381025757488680496918738059554508315544797)
+    #print(m)
 
 
 
