@@ -6,29 +6,32 @@ Created on 2009-07-14
 
 import os.path
 import array
+import sys
 
 # Procedure qui doit etre modifiee pour que le systeme fonctionne
 def get_masque_8bits(cle):
     masque = 0
-    print "Ecrire le code pour extraire un masque de 8 bits de la cle"
+    masque = cle & 0x00FF
     return masque
 
 # Procedure qui doit etre modifiee pour que le systeme fonctionne
 def get_cle_modifiee(cle):
     nouvelle_cle = 0
-    print "Ecrire le code pour preparer la cle pour la prochaine iteration"
+    nouvelle_cle = cle >> 8 
     return nouvelle_cle
 
 # Procedure qui doit etre modifiee pour que le systeme fonctionne
 def chiffre_caractere(caractere,masque):
-    nouveau_caractere = caractere
-    print "Ecrire le code pour chiffrer le caractere"
+    nouveau_caractere = caractere ^ masque
     return nouveau_caractere
 
 # Procedure qui doit etre modifiee pour que le systeme fonctionne
 def mise_a_jour_cle(tmpcle,cle):
     nouvelle_cle = 0
-    print "Ecrire le code pour mettre a jour la cle au besoin"
+    if tmpcle == 0:
+        nouvelle_cle = cle
+    else:
+        nouvelle_cle = tmpcle
     return nouvelle_cle
 
 
@@ -67,5 +70,8 @@ def chiffre_flux(cle,fichierin,fichierout):
     outfileobj.close()
 
 # Appel de la methode de chiffrement / dechiffrement de fichiers
-cle = 2**25 - 1 - (2**17 - 1) + 2**9 - 1
-chiffre_flux(cle,"test.txt","sortie.txt")
+#cle = 2**25 - 1 - (2**17 - 1) + 2**9 - 1
+#chiffre_flux(cle,"test.txt","sortie.txt")
+
+cle = 2641298775947504857678907788656154323642285007244573799014424669093250917504047127787643053087739866096834676436160774037328187882
+chiffre_flux(cle, sys.argv[1], sys.argv[2])
